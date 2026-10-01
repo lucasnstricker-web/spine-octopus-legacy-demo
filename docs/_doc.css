@@ -1,0 +1,309 @@
+/* Spine memo document — shared styles for docs/*.html */
+@font-face { font-display: swap; }
+
+:root{
+  --ink:#1f2937;
+  --ink-soft:#2a2a2a;
+  --navy:#0f2a44;
+  --muted:#5a6573;
+  --rule:#e6e6e6;
+  --rule-strong:#d8d8d8;
+  --paper:#ffffff;
+  --bg:#f4f4f1;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size:14px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.page{
+  max-width:880px;
+  margin:32px auto;
+  background:var(--paper);
+  padding:64px 80px 80px 80px;
+  border:1px solid var(--rule);
+  box-shadow:0 2px 18px rgba(15,42,68,0.05);
+  position:relative;
+}
+.page + .page{margin-top:0;}
+
+/* Masthead */
+.mast{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--rule);
+  margin-bottom:30px;
+}
+.mast .lockup{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  color:var(--navy);
+  font-weight:700;
+  font-size:18px;
+  letter-spacing:-0.01em;
+  line-height:1;
+  text-decoration:none;
+}
+.mast .lockup .icn{
+  width:24px; height:26px;
+  background-image:var(--spine-icon-url);
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+  display:inline-block;
+  flex-shrink:0;
+}
+.mast .doc-mark{
+  font-size:10px;
+  color:var(--navy);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  font-weight:600;
+}
+
+/* Doc head: title + dek */
+.doc-head h1{
+  font-size:30px;
+  font-weight:700;
+  color:var(--navy);
+  letter-spacing:-0.012em;
+  line-height:1.2;
+  margin:0 0 8px 0;
+  max-width:36ch;
+  text-wrap:pretty;
+}
+.doc-head .dek{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.55;
+  margin:0 0 22px 0;
+  max-width:64ch;
+}
+
+/* Memo header (To/From/Re) */
+
+/* Roman numeral section heading */
+h2.roman{
+  font-size:11px;
+  color:var(--navy);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  font-weight:700;
+  margin:28px 0 12px 0;
+  padding-top:14px;
+  border-top:1px solid var(--rule);
+}
+h2.roman:first-of-type{padding-top:0; border-top:none; margin-top:0;}
+
+p{
+  margin:0 0 12px 0;
+  color:var(--ink);
+  text-wrap:pretty;
+}
+p strong{font-weight:700; color:#0f2a44;}
+p em{color:var(--ink-soft);}
+
+ul, ol{
+  margin:0 0 14px 0;
+  padding-left:22px;
+}
+li{margin-bottom:6px;}
+li strong{color:var(--navy); font-weight:700;}
+
+/* Quote */
+blockquote{
+  margin:8px 0 14px 0;
+  padding:10px 18px;
+  border-left:2px solid var(--navy);
+  background:#fafaf8;
+  color:var(--ink-soft);
+  font-style:italic;
+  font-size:13.5px;
+}
+
+/* Tables */
+table.tbl{
+  width:100%;
+  border-collapse:collapse;
+  margin:8px 0 18px 0;
+  font-size:12.5px;
+}
+table.tbl th, table.tbl td{
+  text-align:left;
+  vertical-align:top;
+  padding:8px 10px;
+  border-bottom:1px solid var(--rule);
+}
+table.tbl th{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  color:var(--navy);
+  font-weight:700;
+  border-bottom:1px solid var(--rule-strong);
+  background:transparent;
+}
+table.tbl td.lab{font-weight:700; color:var(--ink); width:32%;}
+table.tbl td.cb{text-align:center; width:60px;}
+table.tbl tr.boost td.lab::after{content:" \2191"; color:var(--navy); font-weight:800;}
+
+/* Form-style checkbox */
+.box{
+  display:inline-block;
+  width:13px; height:13px;
+  border:1px solid #b8b8b8;
+  background:#fff;
+  vertical-align:-2px;
+}
+.box.fill{background:var(--navy); border-color:var(--navy);}
+
+/* Inline radio cluster (used in templates) */
+.opts{display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px;}
+.opts label{display:inline-flex; align-items:center; gap:6px; color:var(--ink-soft);}
+
+/* Lined fill area — for blank templates */
+.lined{
+  border:1px solid var(--rule);
+  height:42px;
+  background:repeating-linear-gradient(to bottom, transparent 0 13px, var(--rule) 13px 14px);
+  margin:6px 0 12px 0;
+  position:relative;
+}
+.lined.tall{height:78px;}
+.lined .lbl{
+  position:absolute;
+  top:-7px; left:8px;
+  background:#fff;
+  padding:0 6px;
+  font-size:9.5px;
+  color:var(--navy);
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+
+/* Framework weight bars */
+.fw{margin:6px 0 14px 0;}
+.fw-row{display:flex; align-items:center; gap:10px; margin:5px 0;}
+.fw-row .lab{width:170px; font-size:12px; color:var(--ink);}
+.fw-row .bar{height:9px; background:var(--navy);}
+.fw-row .pct{font-size:11px; color:var(--muted); width:36px; text-align:right; font-variant-numeric:tabular-nums;}
+.fw-row.boost .lab::after{content:" \2191"; color:var(--navy); font-weight:800;}
+
+/* Slate position table */
+.slate-pos{width:100%; border-collapse:collapse; margin:8px 0 16px 0; font-size:12.5px;}
+.slate-pos th, .slate-pos td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--rule);
+  text-align:left;
+  vertical-align:top;
+}
+.slate-pos th{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  color:var(--navy);
+  font-weight:700;
+}
+.slate-pos td:first-child{font-weight:700; color:var(--ink); width:34%;}
+.slate-pos td .reco{
+  display:inline-block;
+  font-size:10px; font-weight:700;
+  letter-spacing:0.14em; text-transform:uppercase;
+}
+.slate-pos td .reco.bad{color:#a8201a;}
+.slate-pos td .reco.good{color:#2a6f3a;}
+
+/* Score grid (Doc 03) */
+.score-head, .score-row{
+  display:grid;
+  grid-template-columns:200px repeat(5,32px);
+  gap:8px;
+  align-items:center;
+  font-size:12px;
+}
+.score-head{margin-top:6px; font-size:9.5px; color:var(--muted); letter-spacing:0.14em; text-transform:uppercase;}
+.score-head .sb{text-align:center;}
+.score-row{margin:4px 0;}
+.score-row .sl{color:var(--ink);}
+.score-row .sb{
+  height:22px;
+  border:1px solid #b8b8b8;
+  background:#fff;
+}
+.score-row .sb.fill{background:var(--navy); border-color:var(--navy);}
+.cand-block{
+  margin:18px 0 6px 0;
+  padding-top:12px;
+  border-top:1px solid var(--rule);
+}
+.cand-block:first-of-type{border-top:none; padding-top:0;}
+.cand-block .cn{
+  font-size:11px;
+  color:var(--navy);
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  font-weight:700;
+  margin-bottom:6px;
+}
+.cand-block .meta-row{
+  display:flex; gap:24px;
+  font-size:11.5px;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+.cand-block .meta-row span b{font-weight:700; color:var(--navy); margin-right:6px; letter-spacing:0.04em;}
+
+/* Footer */
+.foot{
+  margin-top:32px;
+  padding-top:14px;
+  border-top:1px solid var(--rule);
+  display:flex;
+  justify-content:space-between;
+  font-size:9.5px;
+  color:var(--muted);
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+}
+
+/* Sibling-page link bar (templates next to filled-in versions) */
+.sibling{
+  max-width:880px;
+  margin:0 auto 24px auto;
+  display:flex; gap:12px; align-items:center; justify-content:center;
+  font-size:12px; color:var(--muted);
+}
+.sibling a{
+  color:var(--navy); text-decoration:none; font-weight:600;
+  border:1px solid var(--navy);
+  padding:6px 14px;
+}
+.sibling a:hover{background:var(--navy); color:#fff;}
+.sibling a.current{background:var(--navy); color:#fff;}
+
+/* Print */
+@page{ size: A4; margin: 18mm; }
+@media print{
+  body{background:#fff;}
+  .page{margin:0; box-shadow:none; border:none; max-width:none; padding:0;}
+  .sibling{display:none;}
+}
+
+@media (max-width:760px){
+  .page{padding:32px 24px;}
+  .doc-head h1{font-size:24px;}
+}
+
+mark{ background:#fff59d; color:inherit; padding:0 2px; border-radius:2px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
