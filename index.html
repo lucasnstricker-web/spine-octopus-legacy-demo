@@ -1212,6 +1212,11 @@
     section.snap#sec-2 .thumbs-row{ display:flex; justify-content:center; gap:40px; margin-top:44px; }
     section.snap#sec-2 .thumbs-row .thumb{ width:240px; flex:0 0 240px; }
   }
+  a.thumb{ border-color:var(--navy); }
+  @media (max-width:700px){
+    .scroll-host{ scroll-snap-type:y proximity; }
+    section.snap:last-of-type{ scroll-snap-align:none; }
+  }
 </style>
 </head>
 <body>
@@ -1270,6 +1275,7 @@
         <h1>How Spine Reports On<br>Your VP Sales Hire.</h1>
         <p class="sub">A demo on the VP Sales / Revenue search: the report before the offer, the calibration reports after the start, and the hiring pulse that carries into the next hire.</p>
         <a class="pill" href="#sec-1">Begin →</a>
+        <p class="footnote">Documents outlined in navy are clickable and open in full.</p>
       </div>
     </div>
   </section>
